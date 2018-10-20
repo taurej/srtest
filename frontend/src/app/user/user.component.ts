@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
     state: new FormControl(null, Validators.required)
   })
   constructor(private _userservice: UserService) { }
-
+    message ='';
   ngOnInit() {
   }
 
@@ -31,6 +31,7 @@ export class UserComponent implements OnInit {
     }
     this._userservice.register(this.registerForm.value)
     .subscribe(data=>{
+      this.message = "User registed successfully!"
         this.registerForm.reset();
       },
       err=>console.error(err)      

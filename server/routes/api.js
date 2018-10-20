@@ -10,7 +10,7 @@ router.post('/register',(req, res)=>{
 	var filename = req.body.username + uuidv4();
 	fs.writeFile('Document/'+filename+'.json', data, (err) => {  
 		if (err) throw err;
-		res.status(200).send('Data written to file');
+		res.json('Data written to file');
 	});
 
 
